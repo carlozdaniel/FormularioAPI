@@ -11,6 +11,7 @@ namespace FormularioAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly AppDbContext _context;
+        // Inyección de dependencias de AppDbContext
 
         public UsersController(AppDbContext context)
         {
@@ -20,15 +21,7 @@ namespace FormularioAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(User user)
         {
-            Console.WriteLine("Datos recibidos:");
-            Console.WriteLine($"Nombre: {user.Nombre}");
-            Console.WriteLine($"Segundo Nombre: {user.SegundoNombre}");
-            Console.WriteLine($"Apellido Paterno: {user.ApellidoPaterno}");
-            Console.WriteLine($"Apellido Materno: {user.ApellidoMaterno}");
-            Console.WriteLine($"Fecha de Nacimiento: {user.FechaNacimiento}");
-            Console.WriteLine($"Email: {user.Email}");
-            Console.WriteLine($"Telefono: {user.Telefono}");
-
+            // Añade el usuario a la base de datos y guarda los cambios de manera asíncrona
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
             return Ok(user);

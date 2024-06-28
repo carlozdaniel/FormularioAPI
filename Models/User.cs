@@ -1,6 +1,6 @@
-
 namespace FormularioAPI.Models
 {
+    // Modelo de usuario que representa la estructura de datos en la base de datos
     public class User
     {
         public int Id { get; set; }
@@ -13,4 +13,3 @@ namespace FormularioAPI.Models
         public string? Telefono { get; set; }
     }
 }
-
